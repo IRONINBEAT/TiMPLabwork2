@@ -35,7 +35,10 @@ namespace TiMPLabwork2
                         else
                         {
                             string[] menuItemInfo = line.Split(' ');
-                            currentUser.MenuAccess.Add(menuItemInfo[0], int.Parse(menuItemInfo[1]));
+                            MenuItem mi = new MenuItem(menuItemInfo[0], int.Parse(menuItemInfo[1]));
+                            currentUser.MenuItems.Add(mi);
+                            //string[] menuItemInfo = line.Split(' ');
+                            //currentUser.MenuAccess.Add(menuItemInfo[0], int.Parse(menuItemInfo[1]));
                         }
                     }
                 }

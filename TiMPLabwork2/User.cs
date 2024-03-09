@@ -10,13 +10,13 @@ namespace TiMPLabwork2
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public Dictionary<string, int> MenuAccess { get; set; }
+        public List<MenuItem> MenuItems { get; set; }
 
         public User(string username, string password)
         {
             Username = username;
             Password = password;
-            MenuAccess = new Dictionary<string, int>();
+            MenuItems = new List<MenuItem>();
         }
     }
 }

@@ -61,7 +61,6 @@ public partial class Form1 : Form
 
         if (user != null)
         {
-
             Menu menu = new Menu(user); 
             menu.Show();
             Hide();

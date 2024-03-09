@@ -36,24 +36,26 @@ namespace TiMPLabwork2
         {
             InitializeComponent();
             this.user = user;
-            GenerateMenu();
+            //GenerateMenu();
         }
 
-        private void GenerateMenu()
-        {
-            foreach (var menuItem in user.MenuAccess.Where(kv => kv.Value != 2))
-            {
-                ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Key);
-                menuItemControl.Click += MenuItem_Click;
-                menuStrip1.Items.Add(menuItemControl);
-            }
-        }
+        //private void GenerateMenu()
+        //{
+        //    foreach (var menuItem in user.MenuItems.Where(kv => kv.Status != 2))
+        //    {
+        //        ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Name);
+        //        //menuItemControl.Text = menuItem.MethodName;
+        //        menuItemControl.Ite
+        //        menuItemControl.Click += MenuItem_Click;
+        //        menuStrip1.Items.Add(menuItemControl);
+        //    }
+        //}
 
         private void MenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
-            string methodName = user.MenuAccess[menuItem.Text] == 0 ? "MenuItemHandler" : null;
-            MessageBox.Show($"You clicked on '{menuItem.Text}' with method '{methodName}'.");
+            //string methodName = user.MenuItems[menuItem.Text] == 0 ? "MenuItemHandler" : null;
+            MessageBox.Show($"You clicked on '{menuItem.Text}' with method '{menuItem.Name}'.");
         }
 
         private void Others_Click(object sender, EventArgs e) => MessageBox.Show("Вызвался метод Others", "Вызов функции", MessageBoxButtons.OK, MessageBoxIcon.Information);
