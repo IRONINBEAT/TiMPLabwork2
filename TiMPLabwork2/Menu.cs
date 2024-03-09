@@ -16,14 +16,6 @@ namespace TiMPLabwork2
         private IContainer components;
         private ToolStripComboBox toolStripComboBox1;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem toolStripMenuItem2;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
-        private ToolStripMenuItem toolStripMenuItem6;
-        private ToolStripMenuItem toolStripMenuItem8;
-        private ToolStripMenuItem toolStripMenuItem5;
-        private ToolStripMenuItem toolStripMenuItem7;
 
         private readonly User user;
 
@@ -36,7 +28,7 @@ namespace TiMPLabwork2
         {
             InitializeComponent();
             this.user = user;
-            //GenerateMenu();
+            GenerateMenu();
         }
 
         //private void GenerateMenu()
@@ -45,18 +37,42 @@ namespace TiMPLabwork2
         //    {
         //        ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Name);
         //        //menuItemControl.Text = menuItem.MethodName;
-        //        menuItemControl.Ite
+
         //        menuItemControl.Click += MenuItem_Click;
         //        menuStrip1.Items.Add(menuItemControl);
         //    }
         //}
 
-        private void MenuItem_Click(object sender, EventArgs e)
+        private void GenerateMenu()
         {
-            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
-            //string methodName = user.MenuItems[menuItem.Text] == 0 ? "MenuItemHandler" : null;
-            MessageBox.Show($"You clicked on '{menuItem.Text}' with method '{menuItem.Name}'.");
+            MenuReader menuReader = new MenuReader("C:\\Users\\IRONIN\\RiderProjects\\TestLogic\\TestLogic\\bin\\Debug\\net7.0\\menu.txt");
+
+            
+
+            MenuBuilder menuBuilder = new MenuBuilder();
+            menuBuilder.BuildMenu(menuStrip1, menuReader.MenuItems);
+
+
+            //foreach (var menuItem in readFromFile)
+            //{
+            //    if (menuItem.Level == 0)
+            //    {
+            //        ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Name);
+
+            //        menuItemControl.Name = menuItem.MethodName;
+
+            //        menuItemControl.Click += MenuItem_Click;
+            //        menuStrip1.Items.Add(menuItemControl);
+            //    }
+
+
+
+            //}
+
+
         }
+
+
 
         private void Others_Click(object sender, EventArgs e) => MessageBox.Show("Вызвался метод Others", "Вызов функции", MessageBoxButtons.OK, MessageBoxIcon.Information);
         private void Stuff_Click(object sender, EventArgs e) => MessageBox.Show("Вызвался метод Stuff", "Вызов функции", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
