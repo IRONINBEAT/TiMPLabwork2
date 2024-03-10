@@ -28,49 +28,18 @@ namespace TiMPLabwork2
         {
             InitializeComponent();
             this.user = user;
-            GenerateMenu();
-        }
-
-        //private void GenerateMenu()
-        //{
-        //    foreach (var menuItem in user.MenuItems.Where(kv => kv.Status != 2))
-        //    {
-        //        ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Name);
-        //        //menuItemControl.Text = menuItem.MethodName;
-
-        //        menuItemControl.Click += MenuItem_Click;
-        //        menuStrip1.Items.Add(menuItemControl);
-        //    }
-        //}
-
-        private void GenerateMenu()
-        {
-            MenuReader menuReader = new MenuReader("C:\\Users\\IRONIN\\RiderProjects\\TestLogic\\TestLogic\\bin\\Debug\\net7.0\\menu.txt");
-
+            MenuManager.BuildMenu(user, GetMenu(), menuStrip1.Items);
             
+        }
 
-            MenuBuilder menuBuilder = new MenuBuilder();
-            menuBuilder.BuildMenu(menuStrip1, menuReader.MenuItems);
+        public List<MenuItem> GetMenu()
+        {
+            MenuManager mm = new MenuManager();
 
-
-            //foreach (var menuItem in readFromFile)
-            //{
-            //    if (menuItem.Level == 0)
-            //    {
-            //        ToolStripMenuItem menuItemControl = new ToolStripMenuItem(menuItem.Name);
-
-            //        menuItemControl.Name = menuItem.MethodName;
-
-            //        menuItemControl.Click += MenuItem_Click;
-            //        menuStrip1.Items.Add(menuItemControl);
-            //    }
-
-
-
-            //}
-
+            return mm.GetMenuItems();
 
         }
+
 
 
 

@@ -10,7 +10,7 @@ namespace TiMPLabwork2
     {
         private List<User> users;
 
-        public UserManager(string filename = "C:\\Users\\IRONIN\\RiderProjects\\TestLogic\\TestLogic\\bin\\Debug\\net7.0\\USERS.txt")
+        public UserManager(string filename = "USERS.txt")
         {
             users = new List<User>();
             LoadUsersFromFile(filename);
@@ -37,8 +37,6 @@ namespace TiMPLabwork2
                             string[] menuItemInfo = line.Split(' ');
                             MenuItem mi = new MenuItem(menuItemInfo[0], int.Parse(menuItemInfo[1]));
                             currentUser.MenuItems.Add(mi);
-                            //string[] menuItemInfo = line.Split(' ');
-                            //currentUser.MenuAccess.Add(menuItemInfo[0], int.Parse(menuItemInfo[1]));
                         }
                     }
                 }
